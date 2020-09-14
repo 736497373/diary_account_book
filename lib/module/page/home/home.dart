@@ -1,3 +1,4 @@
+import 'package:diary_account_book/module/services/EventBusUtils.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
           ),
           FlatButton(
               onPressed: () {
-                Scaffold.of(context).openEndDrawer();
+                eventBus.fire(RootPageEvent(true));
               },
               child: Text('打开侧边栏'))
         ],

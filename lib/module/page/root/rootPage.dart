@@ -1,6 +1,6 @@
 import 'package:diary_account_book/module/page/drawer/rightDrawer.dart';
 import 'package:diary_account_book/module/page/main/mainPage.dart';
-import 'package:diary_account_book/module/provider/rootProvider.dart';
+import 'package:diary_account_book/module/services/EventBusUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,30 +13,40 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage>
     with SingleTickerProviderStateMixin {
+  bool _openDrawer = false;
+
   Animation<Size> animation; //动画对象
   AnimationController controller; //动画控制器
-  @override
-  initState() {
-    super.initState();
-    controller =
-        AnimationController(duration: const Duration(seconds: 3), vsync: this);
 
+  void openDrawer() {
     Tween<Size> openDrawer = Tween(
         begin: Size(ScreenUtil.screenWidth, ScreenUtil.screenHeight),
         end:
             Size(ScreenUtil.screenWidth * 0.65, ScreenUtil.screenHeight * 0.8));
-
     animation = openDrawer.animate(controller);
-
-    // ///添加动画监听
     animation.addListener(() {
       setState(() => {});
-      print("key=====" + widget.toStringShort());
     });
 
     animation.addStatusListener((status) {});
+  }
 
-    controller.forward();
+  @override
+  initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: const Duration(milliseconds: 500), vsync: this);
+
+    openDrawer();
+
+    eventBus.on<RootPageEvent>().listen((event) {
+      _openDrawer = !_openDrawer;
+      if (_openDrawer) {
+        controller.forward();
+      } else {
+        controller.reverse();
+      }
+    });
 
     ///动画开始
   }
