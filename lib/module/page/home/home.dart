@@ -1,5 +1,8 @@
 import 'package:diary_account_book/module/services/EventBusUtils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'widget/home_current_overview.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -14,14 +17,10 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Column(
         children: [
-          Center(
-            child: Text('首页'),
-          ),
-          FlatButton(
-              onPressed: () {
-                eventBus.fire(RootPageEvent(true));
-              },
-              child: Text('打开侧边栏'))
+          Container(
+            margin: EdgeInsets.only(top: ScreenUtil.statusBarHeight),
+            child: HomeCurrentOverViewWidget(),
+          )
         ],
       ),
     );
