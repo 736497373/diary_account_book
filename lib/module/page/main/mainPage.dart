@@ -1,3 +1,4 @@
+import 'package:diary_account_book/module/page/drawer/rightDrawer.dart';
 import 'package:flutter/material.dart';
 import '../home/home.dart';
 import '../personal/personal.dart';
@@ -16,15 +17,6 @@ class _MainPageState extends State<MainPage> {
   // 当前选中下表
   int _tabIndex = 0;
 
-  // 切换标题
-  List _appBarList = [
-    AppBar(title: Text('首页')),
-    AppBar(title: Text('统计')),
-    AppBar(title: Text('添加')),
-    AppBar(title: Text('流水')),
-    AppBar(title: Text('个人'))
-  ];
-
   // 切换页面
   List _pageList = [
     new HomePage(),
@@ -36,11 +28,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            appBar: _appBarList[_tabIndex],
-            body: _pageList[_tabIndex],
-            bottomNavigationBar: myBottomBar(context)));
+    return Scaffold(
+        body: _pageList[_tabIndex], bottomNavigationBar: myBottomBar(context));
   }
 
   Widget myBottomBar(BuildContext context) {
