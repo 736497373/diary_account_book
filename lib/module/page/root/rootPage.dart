@@ -63,14 +63,18 @@ class _RootPageState extends State<RootPage>
       RightDrawerPage(),
       Positioned(
           right: ScreenUtil.screenWidth - animation.value.width,
-          child: Container(
-            margin: EdgeInsets.only(
-                top: (ScreenUtil.screenHeight - animation.value.height) * 0.5),
-            child: Center(
+          child: ClipRRect(
+            clipBehavior: Clip.hardEdge,
+            borderRadius:
+                BorderRadius.all(Radius.circular(_openDrawer == true ? 30 : 0)),
+            child: Container(
+              margin: EdgeInsets.only(
+                  top:
+                      (ScreenUtil.screenHeight - animation.value.height) * 0.5),
               child: MainPage(),
+              height: animation.value.height,
+              width: ScreenUtil.screenWidth,
             ),
-            height: animation.value.height,
-            width: ScreenUtil.screenWidth,
           ))
     ]);
   }
