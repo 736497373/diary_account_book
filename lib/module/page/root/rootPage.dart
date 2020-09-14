@@ -21,8 +21,7 @@ class _RootPageState extends State<RootPage>
   void openDrawer() {
     Tween<Size> openDrawer = Tween(
         begin: Size(ScreenUtil.screenWidth, ScreenUtil.screenHeight),
-        end:
-            Size(ScreenUtil.screenWidth * 0.65, ScreenUtil.screenHeight * 0.8));
+        end: Size(ScreenUtil.screenWidth * 0.4, ScreenUtil.screenHeight * 0.8));
     animation = openDrawer.animate(controller);
     animation.addListener(() {
       setState(() => {});
@@ -60,19 +59,19 @@ class _RootPageState extends State<RootPage>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        RightDrawerPage(),
-        Container(
-          margin: EdgeInsets.only(
-              top: (ScreenUtil.screenHeight - animation.value.height) * 0.5),
-          child: Center(
-            child: MainPage(),
-          ),
-          height: animation.value.height,
-          width: animation.value.width,
-        ),
-      ],
-    );
+    return Stack(overflow: Overflow.visible, children: [
+      RightDrawerPage(),
+      Positioned(
+          right: ScreenUtil.screenWidth - animation.value.width,
+          child: Container(
+            margin: EdgeInsets.only(
+                top: (ScreenUtil.screenHeight - animation.value.height) * 0.5),
+            child: Center(
+              child: MainPage(),
+            ),
+            height: animation.value.height,
+            width: ScreenUtil.screenWidth,
+          ))
+    ]);
   }
 }
