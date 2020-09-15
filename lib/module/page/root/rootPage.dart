@@ -21,7 +21,7 @@ class _RootPageState extends State<RootPage>
   void openDrawer() {
     Tween<Size> openDrawer = Tween(
         begin: Size(ScreenUtil.screenWidth, ScreenUtil.screenHeight),
-        end: Size(ScreenUtil.screenWidth * 0.4, ScreenUtil.screenHeight * 0.8));
+        end: Size(ScreenUtil.screenWidth * 0.5, ScreenUtil.screenHeight * 0.8));
     animation = openDrawer.animate(controller);
     animation.addListener(() {
       setState(() => {});
