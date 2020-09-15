@@ -14,7 +14,7 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage>
     with SingleTickerProviderStateMixin {
   bool _openDrawer = false;
-
+  double _circularValue = 0.0;
   Animation<Size> animation; //动画对象
   AnimationController controller; //动画控制器
 
@@ -27,7 +27,13 @@ class _RootPageState extends State<RootPage>
       setState(() => {});
     });
 
-    animation.addStatusListener((status) {});
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed) {
+        _circularValue = 0;
+      } else {
+        _circularValue = 30;
+      }
+    });
   }
 
   @override
@@ -62,17 +68,15 @@ class _RootPageState extends State<RootPage>
     return Stack(overflow: Overflow.visible, children: [
       RightDrawerPage(),
       Positioned(
+          top: (ScreenUtil.screenHeight - animation.value.height) * 0.5,
           right: ScreenUtil.screenWidth - animation.value.width,
+          bottom: (ScreenUtil.screenHeight - animation.value.height) * 0.5,
           child: ClipRRect(
             clipBehavior: Clip.hardEdge,
-            borderRadius:
-                BorderRadius.all(Radius.circular(_openDrawer == true ? 30 : 0)),
+            borderRadius: BorderRadius.all(Radius.circular(_circularValue)),
             child: Container(
-              margin: EdgeInsets.only(
-                  top:
-                      (ScreenUtil.screenHeight - animation.value.height) * 0.5),
               child: MainPage(),
-              height: animation.value.height,
+              height: ScreenUtil.screenHeight,
               width: ScreenUtil.screenWidth,
             ),
           ))
