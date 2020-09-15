@@ -1,5 +1,7 @@
+import 'package:diary_account_book/module/page/home/widget/home_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'home_list_item.dart';
 
 class HomeList extends StatefulWidget {
   HomeList({Key key}) : super(key: key);
@@ -16,7 +18,12 @@ class _HomeListState extends State<HomeList> {
       height: ScreenUtil.screenHeight,
       width: ScreenUtil.screenWidth,
       color: Colors.orange,
-      child: null,
+      child: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return HomeListItem();
+        },
+        itemCount: 10,
+      ),
     ));
   }
 }
