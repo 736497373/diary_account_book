@@ -44,7 +44,7 @@ class _RightDrawerPageState extends State<RightDrawerPage> {
                     children: [
                       Container(
                         height: 50,
-                        width: 200,
+                        width: 150,
                         color: Colors.grey,
                         child: FlatButton(
                           child: Text('生活账本'),
@@ -56,7 +56,7 @@ class _RightDrawerPageState extends State<RightDrawerPage> {
                       Container(
                         margin: EdgeInsets.only(top: 10),
                         height: 50,
-                        width: 200,
+                        width: 150,
                         color: Colors.grey,
                         child: FlatButton(
                           child: Text('商业账本'),
@@ -68,7 +68,7 @@ class _RightDrawerPageState extends State<RightDrawerPage> {
                       Container(
                         margin: EdgeInsets.only(top: 10),
                         height: 50,
-                        width: 200,
+                        width: 150,
                         color: Colors.grey,
                         child: FlatButton(
                           child: Text('旅游账本'),
