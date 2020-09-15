@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:diary_account_book/module/page/home/widget/home_current_budget_item.dart';
 import 'package:flutter/material.dart';
 
 class HomeCurrentBudget extends StatefulWidget {
@@ -10,6 +11,7 @@ class HomeCurrentBudget extends StatefulWidget {
 
 class _HomeCurrentBudgetState extends State<HomeCurrentBudget> {
   int _current = 0;
+  List<Color> _itemList = [Colors.green, Colors.red, Colors.orange];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,18 +30,16 @@ class _HomeCurrentBudgetState extends State<HomeCurrentBudget> {
                     _current = index;
                   });
                 }),
-            items: [Colors.green, Colors.red, Colors.orange]
-                .map((item) => Container(
-                      height: 120,
+            items: _itemList
+                .map((item) => HomeCurrentBudgetItem(
                       color: item,
                     ))
                 .toList(),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Colors.green, Colors.red, Colors.orange].map((color) {
-              int index =
-                  [Colors.green, Colors.red, Colors.orange].indexOf(color);
+            children: _itemList.map((color) {
+              int index = _itemList.indexOf(color);
               return Container(
                 width: 8.0,
                 height: 8.0,
