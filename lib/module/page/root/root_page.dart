@@ -1,5 +1,5 @@
 import 'package:diary_account_book/module/page/drawer/rightDrawer.dart';
-import 'package:diary_account_book/module/page/main/mainPage.dart';
+import 'package:diary_account_book/module/page/main/main_page.dart';
 import 'package:diary_account_book/module/services/EventBusUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

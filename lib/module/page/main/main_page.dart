@@ -1,10 +1,10 @@
 import 'package:diary_account_book/module/page/drawer/rightDrawer.dart';
 import 'package:flutter/material.dart';
-import '../home/home.dart';
-import '../personal/personal.dart';
-import '../record/record.dart';
-import '../statistical/statistical.dart';
-import '../tally/tally.dart';
+import '../home/home_page.dart';
+import '../personal/personal_home_page.dart';
+import '../record/record_home_page.dart';
+import '../statistical/statistical_home_page.dart';
+import '../tally/tally_home_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -20,10 +20,10 @@ class _MainPageState extends State<MainPage> {
   // 切换页面
   List _pageList = [
     new HomePage(),
-    new StatisticalPage(),
-    new TallyPage(),
-    new RecordPage(),
-    new PersonalPage()
+    new StatisticalHomePage(),
+    new TallyHomePage(),
+    new RecordHomePage(),
+    new PersonalHomePage()
   ];
 
   @override

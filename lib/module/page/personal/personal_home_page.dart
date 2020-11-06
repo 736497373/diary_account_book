@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../utils/appNavUtils/AppNavUtils.dart';
 
-class PersonalPage extends StatefulWidget {
-  PersonalPage({Key key}) : super(key: key);
+class PersonalHomePage extends StatefulWidget {
+  PersonalHomePage({Key key}) : super(key: key);
 
   @override
-  _PersonalPageState createState() => _PersonalPageState();
+  _PersonalHomePageState createState() => _PersonalHomePageState();
 }
 
-class _PersonalPageState extends State<PersonalPage> {
+class _PersonalHomePageState extends State<PersonalHomePage> {
   @override
   Widget build(BuildContext context) {
     return AppNavUtil(
