@@ -18,6 +18,7 @@ class _RootPageState extends State<RootPage>
   Animation<Size> animation; //动画对象
   AnimationController controller; //动画控制器
 
+  @override
   void openDrawer() {
     Tween<Size> openDrawer = Tween(
         begin: Size(ScreenUtil.screenWidth, ScreenUtil.screenHeight),
