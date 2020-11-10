@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
+import 'package:diary_account_book/module/utils/loadingUtils/loading_utils.dart';
 import 'package:flutter/material.dart';
 
 class LoginProvider extends ChangeNotifier {
@@ -62,9 +63,12 @@ class LoginProvider extends ChangeNotifier {
 
   Future login() async {
     print('click login');
+    LoadingUtils().show(status: '登录中...');
     Completer completer = new Completer();
     Future.delayed(Duration(seconds: 5), () {
       print('delayed');
+      LoadingUtils().dismiss();
+      LoadingUtils().showSuccess(status: '登录成功');
       return completer.complete();
     });
     return completer.future;
