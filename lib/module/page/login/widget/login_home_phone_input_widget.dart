@@ -1,5 +1,5 @@
 import 'package:diary_account_book/module/provider/login_provider.dart';
-import 'package:diary_account_book/module/utils/colorUtils/ColorsUtils.dart';
+import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';

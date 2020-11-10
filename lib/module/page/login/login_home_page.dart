@@ -1,6 +1,6 @@
 import 'package:diary_account_book/module/provider/login_provider.dart';
-import 'package:diary_account_book/module/utils/appNavUtils/AppNavUtils.dart';
-import 'package:diary_account_book/module/utils/colorUtils/ColorsUtils.dart';
+import 'package:diary_account_book/module/utils/appNavUtils/app_nav_utils.dart';
+import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:provider/provider.dart';

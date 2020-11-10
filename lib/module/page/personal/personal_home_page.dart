@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/appNavUtils/AppNavUtils.dart';
+import '../../utils/appNavUtils/app_nav_utils.dart';
 
 class PersonalHomePage extends StatefulWidget {
   PersonalHomePage({Key key}) : super(key: key);

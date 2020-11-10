@@ -1,5 +1,5 @@
 import 'package:diary_account_book/module/services/EventBusUtils.dart';
-import 'package:diary_account_book/module/utils/colorUtils/ColorsUtils.dart';
+import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:flutter/material.dart';
 
 class HomeCurrentOverViewWidget extends StatelessWidget {
