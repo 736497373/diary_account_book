@@ -14,6 +14,7 @@ class LoginHomeTipWidget extends StatelessWidget {
           style: TextStyle(fontSize: 32, color: ColorsUtil.hexColor(0x3C4546)),
         ),
         Container(
+          margin: EdgeInsets.only(top: 10),
           child: Text(
             '暂时只有手机号密码登陆',
             style:

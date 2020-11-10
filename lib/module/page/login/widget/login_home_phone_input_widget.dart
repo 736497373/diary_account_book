@@ -1,5 +1,8 @@
 import 'package:diary_account_book/module/provider/login_provider.dart';
+import 'package:diary_account_book/module/router/root_router.dart';
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
+import 'package:diary_account_book/module/utils/routerNavUtils/router_nav_utils.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -104,7 +107,14 @@ class _LoginHomePhoneInputWidgetState extends State<LoginHomePhoneInputWidget> {
             width: wdith,
             height: 45,
             child: RaisedButton(
-              onPressed: loginProvider.loginButtonEnable ? () {} : null,
+              onPressed: loginProvider.loginButtonEnable
+                  ? () {
+                      loginProvider.login().then((loginStatus) {
+                        print('login then call back');
+                        RouterNavigatorUtils.push(RootRouter().rootPage);
+                      });
+                    }
+                  : null,
               color: ColorsUtil.hexColor(0x3247D3),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(13),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -58,5 +60,13 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future login() async {}
+  Future login() async {
+    print('click login');
+    Completer completer = new Completer();
+    Future.delayed(Duration(seconds: 5), () {
+      print('delayed');
+      return completer.complete();
+    });
+    return completer.future;
+  }
 }
