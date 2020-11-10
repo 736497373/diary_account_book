@@ -1,7 +1,9 @@
+import 'package:diary_account_book/module/provider/login_provider.dart';
 import 'package:diary_account_book/module/utils/appNavUtils/AppNavUtils.dart';
 import 'package:diary_account_book/module/utils/colorUtils/ColorsUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
+import 'package:provider/provider.dart';
 
 import 'widget/login_home_other_methods_widget.dart';
 import 'widget/login_home_phone_input_widget.dart';
@@ -21,7 +23,12 @@ class LoginHomePage extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(top: 104, left: 30, child: LoginHomeTipWidget()),
-            Positioned(top: 220, left: 0, child: LoginHomePhoneInputWidget()),
+            Positioned(
+                top: 220,
+                left: 0,
+                child: MultiProvider(providers: [
+                  ChangeNotifierProvider(create: (_) => LoginProvider())
+                ], child: LoginHomePhoneInputWidget())),
             Positioned(
                 top: ScreenUtil().setHeight(809 - 200),
                 left: 0,

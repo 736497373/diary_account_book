@@ -1,6 +1,8 @@
 import 'package:diary_account_book/module/page/drawer/rightDrawer.dart';
 import 'package:diary_account_book/module/page/main/main_page.dart';
+
 import 'package:diary_account_book/module/services/EventBusUtils.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -54,7 +56,13 @@ class _RootPageState extends State<RootPage>
       }
     });
 
-    ///动画开始
+    _checkLogin();
+  }
+
+  _checkLogin() async {
+    // Future.delayed(Duration(seconds: 10), () {
+    //   RouterNavigatorUtils.push(LoginRouter().loginHomePage, clearStack: true);
+    // });
   }
 
   @override
