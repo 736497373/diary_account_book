@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:diary_account_book/module/utils/loadingUtils/loading_utils.dart';
+import 'package:diary_account_book/module/utils/localUtils/local_utils.dart';
 import 'package:flutter/material.dart';
 
 class LoginProvider extends ChangeNotifier {
@@ -69,6 +70,7 @@ class LoginProvider extends ChangeNotifier {
       print('delayed');
       LoadingUtils().dismiss();
       LoadingUtils().showSuccess(status: '登录成功');
+      LocalUtils.getInstance().setString(LocalUtils.token, this.phone);
       return completer.complete();
     });
     return completer.future;

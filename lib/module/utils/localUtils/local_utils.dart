@@ -1,4 +1,3 @@
-//本地数据保存
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalUtils {
@@ -29,7 +28,7 @@ class LocalUtils {
     preferences.setInt(key, value);
   }
 
-  getString(String key) async {
+  Future<String> getString(String key) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     return preferences.getString(key);
   }
