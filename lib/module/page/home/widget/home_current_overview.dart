@@ -8,13 +8,13 @@ class HomeCurrentOverViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 172,
       width: double.infinity,
       child: Stack(
         children: [
           Positioned(
               top: 20,
-              left: 15,
+              left: 30,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -22,54 +22,69 @@ class HomeCurrentOverViewWidget extends StatelessWidget {
                     child: Text(
                       '本月支出(元)',
                       style: TextStyle(
-                          fontSize: 14, color: ColorsUtil.hexColor(0x999999)),
+                          fontSize: 14,
+                          color: ColorsUtil.hexColor(0x8A8F90),
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.only(top: 4),
                     child: Text(
                       '6371.70',
                       style: TextStyle(
-                          fontSize: 28, color: ColorsUtil.hexColor(0x333333)),
-                    ),
-                  ),
-                ],
-              )),
-          Positioned(
-              top: 100,
-              left: 15,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      child: Text('本月收入',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: ColorsUtil.hexColor(0x999999)))),
-                  Container(
-                    child: Text(
-                      '6371.70',
-                      style: TextStyle(
-                          fontSize: 28, color: ColorsUtil.hexColor(0x333333)),
+                          fontSize: 36,
+                          color: ColorsUtil.hexColor(0x3C4546),
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
               )),
           Positioned(
               top: 100,
-              right: 100,
+              left: 30,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                      child: Text('结余',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: ColorsUtil.hexColor(0x999999)))),
+                      child: Text(
+                    '本月收入',
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: ColorsUtil.hexColor(0x8A8F90),
+                        fontWeight: FontWeight.w600),
+                  )),
                   Container(
                     child: Text(
                       '6371.70',
                       style: TextStyle(
-                          fontSize: 28, color: ColorsUtil.hexColor(0x333333)),
+                          fontSize: 24,
+                          color: ColorsUtil.hexColor(0x3C4546),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              )),
+          Positioned(
+              top: 100,
+              left: 180,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                      child: Text(
+                    '结余',
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: ColorsUtil.hexColor(0x8A8F90),
+                        fontWeight: FontWeight.w600),
+                  )),
+                  Container(
+                    child: Text(
+                      '6371.70',
+                      style: TextStyle(
+                          fontSize: 24,
+                          color: ColorsUtil.hexColor(0x3C4546),
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -80,17 +95,17 @@ class HomeCurrentOverViewWidget extends StatelessWidget {
               child: ClipRRect(
                   clipBehavior: Clip.hardEdge,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      bottomLeft: Radius.circular(30)),
+                      topLeft: Radius.circular(36),
+                      bottomLeft: Radius.circular(36)),
                   child: FlatButton(
-                      height: 30,
-                      color: Colors.green,
+                      height: 36,
+                      color: ColorsUtil.hexColor(0x2B2ACA),
                       onPressed: () {
                         eventBus.fire(RootPageEvent());
                       },
                       child: Text(
                         '生活账本',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ))))
         ],
       ),
