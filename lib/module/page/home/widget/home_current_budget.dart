@@ -12,10 +12,10 @@ class HomeCurrentBudget extends StatefulWidget {
 
 class _HomeCurrentBudgetState extends State<HomeCurrentBudget> {
   int _current = 0;
-  List<Color> _itemList = [
-    ColorsUtil.hexColor(0x4FA28D),
-    ColorsUtil.hexColor(0xE9B485),
-    ColorsUtil.hexColor(0xDF6A61)
+  List<String> _itemList = [
+    'assets/home_current_budget_item_bg_img_4FA28D.png',
+    'assets/home_current_budget_item_bg_img_E9B485.png',
+    'assets/home_current_budget_item_bg_img_DF6A61.png'
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _HomeCurrentBudgetState extends State<HomeCurrentBudget> {
                 }),
             items: _itemList
                 .map((item) => HomeCurrentBudgetItem(
-                      color: item,
+                      assetsUrl: item,
                     ))
                 .toList(),
           ),
