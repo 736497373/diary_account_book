@@ -1,3 +1,4 @@
+import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_echarts/flutter_echarts.dart';
 
@@ -12,11 +13,13 @@ class _HomeGaugeChartState extends State<HomeGaugeChart> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: ColorsUtil.hexColor(0x000000, alpha: 0),
       width: 300,
       height: 250,
       child: Echarts(
         option: '''
-                  backgroundColor: '#000000',
+          {       
+                  backgroundColor: '#ffffff',
                   toolbox: {
                       show: false,
                       feature: {
@@ -32,25 +35,25 @@ class _HomeGaugeChartState extends State<HomeGaugeChart> {
                           max: 100,
                           splitNumber: 10,
                           radius: '100%',
-                          axisLine: {      
+                          axisLine: {
                               lineStyle: {       // 属性lineStyle控制线条样式
-                                  width: 1,
+                                  width: 0,
                               }
                           },
                           axisTick: {            // 坐标轴小标记
-                              length: 15,        // 属性length控制线长
+                              length: 4,        // 属性length控制线长
                               lineStyle: {       // 属性lineStyle控制线条样式
                                   color: 'auto'
                               }
                           },
                           splitLine: {           // 分隔线
-                              length: 30,         // 属性length控制线长
+                              length: 8,         // 属性length控制线长
                               lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
                                   color: 'auto'
                               }
                           },
                           title: {
-                              fontSize: 20,
+                              fontSize: 0,
                               fontStyle: 'italic'
                           },
                           detail: {
@@ -63,8 +66,8 @@ class _HomeGaugeChartState extends State<HomeGaugeChart> {
                           data: [{value: 40, name: ''}]
                       },
                   ]
-              }
-              ''',
+            }
+        ''',
       ),
     );
   }

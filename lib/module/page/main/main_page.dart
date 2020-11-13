@@ -1,4 +1,3 @@
-import 'package:diary_account_book/module/page/drawer/rightDrawer.dart';
 import 'package:flutter/material.dart';
 import '../home/home_page.dart';
 import '../personal/personal_home_page.dart';
@@ -38,15 +37,31 @@ class _MainPageState extends State<MainPage> {
       type: BottomNavigationBarType.fixed,
       iconSize: 30,
       items: [
-        BottomNavigationBarItem(title: Container(), icon: Icon(Icons.home)),
         BottomNavigationBarItem(
-            title: Container(), icon: Icon(Icons.analytics)),
+          // ignore: deprecated_member_use
+          title: Container(),
+          icon: Icon(Icons.home),
+        ),
         BottomNavigationBarItem(
+          // ignore: deprecated_member_use
+          title: Container(),
+          icon: Icon(Icons.analytics),
+        ),
+        BottomNavigationBarItem(
+          // ignore: deprecated_member_use
           title: Container(),
           icon: Icon(Icons.add_box),
         ),
-        BottomNavigationBarItem(title: Container(), icon: Icon(Icons.list)),
-        BottomNavigationBarItem(title: Container(), icon: Icon(Icons.person)),
+        BottomNavigationBarItem(
+          // ignore: deprecated_member_use
+          title: Container(),
+          icon: Icon(Icons.list),
+        ),
+        BottomNavigationBarItem(
+          // ignore: deprecated_member_use
+          title: Container(),
+          icon: Icon(Icons.person),
+        ),
       ],
       onTap: (index) {
         setState(() {

@@ -20,7 +20,6 @@ class _RootPageState extends State<RootPage>
   Animation<Size> animation; //动画对象
   AnimationController controller; //动画控制器
 
-  @override
   void openDrawer() {
     Tween<Size> openDrawer = Tween(
         begin: Size(ScreenUtil.screenWidth, ScreenUtil.screenHeight),
@@ -74,7 +73,7 @@ class _RootPageState extends State<RootPage>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(overflow: Overflow.visible, children: [
+    return Stack(children: [
       RightDrawerPage(),
       Positioned(
           top: (ScreenUtil.screenHeight - animation.value.height) * 0.5,
