@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:diary_account_book/module/page/home/widget/home_current_budget_item.dart';
+import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:flutter/material.dart';
 
 class HomeCurrentBudget extends StatefulWidget {
@@ -11,7 +12,11 @@ class HomeCurrentBudget extends StatefulWidget {
 
 class _HomeCurrentBudgetState extends State<HomeCurrentBudget> {
   int _current = 0;
-  List<Color> _itemList = [Colors.green, Colors.red, Colors.orange];
+  List<Color> _itemList = [
+    ColorsUtil.hexColor(0x4FA28D),
+    ColorsUtil.hexColor(0xE9B485),
+    ColorsUtil.hexColor(0xDF6A61)
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
