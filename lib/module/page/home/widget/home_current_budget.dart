@@ -41,22 +41,27 @@ class _HomeCurrentBudgetState extends State<HomeCurrentBudget> {
                     ))
                 .toList(),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: _itemList.map((color) {
-              int index = _itemList.indexOf(color);
-              return Container(
-                width: 8.0,
-                height: 8.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), color: Colors.white),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: _itemList.map((color) {
+                int index = _itemList.indexOf(color);
+                return Container(
+                  width: 22.0,
+                  height: 5.0,
+                  margin: EdgeInsets.only(top: 12.0),
                   color: _current == index
-                      ? Color.fromRGBO(0, 0, 0, 0.9)
-                      : Color.fromRGBO(0, 0, 0, 0.4),
-                ),
-              );
-            }).toList(),
+                      ? ColorsUtil.hexColor(0x3247D3)
+                      : ColorsUtil.hexColor(0xD8D8D8),
+                );
+              }).toList(),
+            ),
+          ),
+          Container(
+            color: Colors.white,
+            height: 10,
           )
         ],
       ),
