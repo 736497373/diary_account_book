@@ -60,9 +60,46 @@ class _HomeCurrentBudgetLeftWidgetState
     return Container(
         width: ScreenUtil().setWidth(124),
         child: Container(
-          margin: EdgeInsets.only(left: 15, top: 15),
-          child: HomeGaugeChart(
-            size: Size(110, 110),
+          margin: EdgeInsets.only(left: 7.5, top: 15),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              HomeGaugeChart(
+                size: Size(110, 110),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 30),
+                child: Column(
+                  children: [
+                    Container(
+                        child: RichText(
+                            text: TextSpan(
+                      text: '25',
+                      style: TextStyle(
+                          fontSize: 24,
+                          color: ColorsUtil.hexColor(0xffffff),
+                          fontWeight: FontWeight.w600),
+                      children: [
+                        TextSpan(
+                          text: '%',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: ColorsUtil.hexColor(0xffffff, alpha: 0.7)),
+                        ),
+                      ],
+                    ))),
+                    Container(
+                      child: Text(
+                        '剩余',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: ColorsUtil.hexColor(0xffffff, alpha: 0.5)),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
         ));
   }
