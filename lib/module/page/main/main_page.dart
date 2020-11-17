@@ -40,27 +40,27 @@ class _MainPageState extends State<MainPage> {
         BottomNavigationBarItem(
           // ignore: deprecated_member_use
           title: Container(),
-          icon: Icon(Icons.home),
+          icon: iconWidget('assets/tabbar_icon_账本.png'),
         ),
         BottomNavigationBarItem(
           // ignore: deprecated_member_use
           title: Container(),
-          icon: Icon(Icons.analytics),
+          icon: iconWidget('assets/tabbar_icon_统计.png'),
         ),
         BottomNavigationBarItem(
           // ignore: deprecated_member_use
           title: Container(),
-          icon: Icon(Icons.add_box),
+          icon: addIconWidget('assets/tabbar_icon_添加.png'),
         ),
         BottomNavigationBarItem(
           // ignore: deprecated_member_use
           title: Container(),
-          icon: Icon(Icons.list),
+          icon: iconWidget('assets/tabbar_icon_分析.png'),
         ),
         BottomNavigationBarItem(
           // ignore: deprecated_member_use
           title: Container(),
-          icon: Icon(Icons.person),
+          icon: iconWidget('assets/tabbar_icon_我的.png'),
         ),
       ],
       onTap: (index) {
@@ -68,6 +68,22 @@ class _MainPageState extends State<MainPage> {
           _tabIndex = index;
         });
       },
+    );
+  }
+
+  Widget addIconWidget(String name) {
+    return Container(
+      width: 57,
+      height: 40,
+      child: Image.asset(name),
+    );
+  }
+
+  Widget iconWidget(String name) {
+    return Container(
+      width: 24,
+      height: 30,
+      child: Image.asset(name),
     );
   }
 }

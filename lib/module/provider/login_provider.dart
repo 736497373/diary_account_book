@@ -63,11 +63,9 @@ class LoginProvider extends ChangeNotifier {
   }
 
   Future login() async {
-    print('click login');
     LoadingUtils().show(status: '登录中...');
     Completer completer = new Completer();
-    Future.delayed(Duration(seconds: 5), () {
-      print('delayed');
+    Future.delayed(Duration(seconds: 2), () {
       LoadingUtils().dismiss();
       LoadingUtils().showSuccess(status: '登录成功');
       LocalUtils.getInstance().setString(LocalUtils.token, this.phone);
