@@ -1,4 +1,7 @@
+import 'package:diary_account_book/module/router/home_router.dart';
+import 'package:diary_account_book/module/utils/appNavUtils/app_nav_utils.dart';
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
+import 'package:diary_account_book/module/utils/routerNavUtils/router_nav_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,30 +18,35 @@ class HomeCurrentBudgetItem extends StatefulWidget {
 class _HomeCurrentBudgetItemState extends State<HomeCurrentBudgetItem> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 6, right: 6),
+    return GestureDetector(
+      onTap: () {
+        RouterNavigatorUtils.push(HomeRouter().homeBudgetDetailPage);
+      },
       child: Container(
-        child: Stack(
-          children: [
-            Container(
-              height: ScreenUtil.screenHeight,
-              width: ScreenUtil.screenWidth,
-              child: Image.asset(
-                widget.assetsUrl,
-                fit: BoxFit.fill,
+        padding: EdgeInsets.only(left: 6, right: 6),
+        child: Container(
+          child: Stack(
+            children: [
+              Container(
+                height: ScreenUtil.screenHeight,
+                width: ScreenUtil.screenWidth,
+                child: Image.asset(
+                  widget.assetsUrl,
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            Container(
-              height: ScreenUtil.screenHeight,
-              width: ScreenUtil.screenWidth,
-              child: Row(
-                children: [
-                  HomeCurrentBudgetLeftWidget(),
-                  HomeCurrentBudgetRightWidget()
-                ],
-              ),
-            )
-          ],
+              Container(
+                height: ScreenUtil.screenHeight,
+                width: ScreenUtil.screenWidth,
+                child: Row(
+                  children: [
+                    HomeCurrentBudgetLeftWidget(),
+                    HomeCurrentBudgetRightWidget()
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -122,7 +130,7 @@ class _HomeCurrentBudgetRightWidgetState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 20),
+            margin: EdgeInsets.only(top: 20, left: 12),
             child: Text(
               '我的预算',
               style: TextStyle(
@@ -132,11 +140,11 @@ class _HomeCurrentBudgetRightWidgetState
             ),
           ),
           Container(
-              margin: EdgeInsets.only(top: 6),
+              margin: EdgeInsets.only(top: 6, left: 12),
               child: Row(
                 children: [
                   rightWidgetItem('总预算', '8500'),
-                  SizedBox(width: 24),
+                  SizedBox(width: 12),
                   rightWidgetItem('剩余预算', '2125.30')
                 ],
               ))
