@@ -175,7 +175,7 @@ class _HomeBudgetDetailState extends State<HomeBudgetDetail> {
       height: 45,
       child: RaisedButton(
         onPressed: () {},
-        color: Colors.transparent,
+        color: ColorsUtil.hexColor(0xFFFFFF, alpha: 0.7),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(13),
             side: BorderSide(color: Colors.transparent, width: 1)),
