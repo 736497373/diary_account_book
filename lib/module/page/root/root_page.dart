@@ -1,4 +1,4 @@
-import 'package:diary_account_book/module/page/drawer/rightDrawer.dart';
+import 'package:diary_account_book/module/page/drawer/right_drawer.dart';
 import 'package:diary_account_book/module/page/main/main_page.dart';
 
 import 'package:diary_account_book/module/services/EventBusUtils.dart';
