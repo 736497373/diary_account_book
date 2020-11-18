@@ -27,7 +27,7 @@ class _HomeBudgetDetailState extends State<HomeBudgetDetail> {
             bgWidget(),
             backWidget(),
             Positioned(
-              top: 130,
+              top: ScreenUtil().setHeight(130),
               left: 30,
               child: titleWidget(),
             ),
@@ -38,7 +38,7 @@ class _HomeBudgetDetailState extends State<HomeBudgetDetail> {
               ],
             ),
             Positioned(
-              bottom: 100,
+              bottom: ScreenUtil().setHeight(50),
               child: budgetChangeButtonWidget(),
             )
           ],
@@ -92,7 +92,7 @@ class _HomeBudgetDetailState extends State<HomeBudgetDetail> {
 
   Widget gaugeChartWidget() {
     return Container(
-      margin: EdgeInsets.only(top: 300),
+      margin: EdgeInsets.only(top: ScreenUtil().setHeight(280)),
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -175,7 +175,7 @@ class _HomeBudgetDetailState extends State<HomeBudgetDetail> {
       height: 45,
       child: RaisedButton(
         onPressed: () {},
-        color: ColorsUtil.hexColor(0xFFFFFF, alpha: 0.7),
+        color: ColorsUtil.hexColor(0xFFFFFF, alpha: 1),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(13),
             side: BorderSide(color: Colors.transparent, width: 1)),
