@@ -26,7 +26,15 @@ class _TallyHomePageState extends State<TallyHomePage> {
               walletTypeContainerWidget()
             ],
           ),
-          actionContainerWidget(ScreenUtil().setHeight(height - 150))
+          actionContainerWidget(ScreenUtil().setHeight(height - 150),
+              child: Column(
+                children: [
+                  actionSubRecordTypeWidget(),
+                  actionSubTimeContainerWidget(),
+                  actionSubRemarkWidget(),
+                  actionButtonContainerWidget()
+                ],
+              ))
         ],
       ),
     );
@@ -188,7 +196,7 @@ class _TallyHomePageState extends State<TallyHomePage> {
     );
   }
 
-  Widget actionContainerWidget(double height) {
+  Widget actionContainerWidget(double height, {Widget child}) {
     return Positioned(
       bottom: 0,
       child: Container(
@@ -200,6 +208,120 @@ class _TallyHomePageState extends State<TallyHomePage> {
             color: ColorsUtil.hexColor(0xEEEEEE)),
         width: ScreenUtil.screenWidth,
         height: height,
+        child: child,
+      ),
+    );
+  }
+
+  Widget actionSubRecordTypeWidget() {
+    return Container(
+      margin: EdgeInsets.only(top: 12),
+      height: 110,
+      width: ScreenUtil().setWidth(351),
+      decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          color: ColorsUtil.hexColor(0xFFFFFF)),
+    );
+  }
+
+  Widget actionSubTimeContainerWidget() {
+    return Container(
+      margin: EdgeInsets.only(top: 12),
+      height: 60,
+      width: ScreenUtil().setWidth(351),
+      decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          color: ColorsUtil.hexColor(0xEEEEEE)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: ScreenUtil().setWidth(277),
+            decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                color: ColorsUtil.hexColor(0xFFFFFF)),
+          ),
+          Container(
+            width: ScreenUtil().setWidth(62),
+            decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                color: ColorsUtil.hexColor(0xFFFFFF)),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget actionSubRemarkWidget() {
+    return Container(
+      margin: EdgeInsets.only(top: 12),
+      height: 60,
+      width: ScreenUtil().setWidth(351),
+      decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          color: ColorsUtil.hexColor(0xFFFFFF)),
+    );
+  }
+
+  Widget actionButtonContainerWidget() {
+    return Container(
+      margin: EdgeInsets.only(top: 12),
+      height: 60,
+      width: ScreenUtil().setWidth(351),
+      decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          color: ColorsUtil.hexColor(0xEEEEEE)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [saveButtonWidget(), againButtonWidget()],
+      ),
+    );
+  }
+
+  Widget saveButtonWidget() {
+    return Container(
+      margin: EdgeInsets.only(top: 14),
+      width: ScreenUtil().setWidth(210),
+      height: 45,
+      child: RaisedButton(
+        onPressed: () {},
+        color: ColorsUtil.hexColor(0x4FA28D),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+            side: BorderSide(color: Colors.transparent, width: 1)),
+        child: Text(
+          "保存",
+          style: TextStyle(
+              fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+      ),
+    );
+  }
+
+  Widget againButtonWidget() {
+    return Container(
+      margin: EdgeInsets.only(top: 14),
+      width: ScreenUtil().setWidth(127),
+      height: 45,
+      child: RaisedButton(
+        onPressed: () {},
+        color: ColorsUtil.hexColor(0xF5F5F5),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+            side: BorderSide(color: ColorsUtil.hexColor(0x4FA28D), width: 2)),
+        child: Text(
+          "再记一笔",
+          style: TextStyle(
+              fontSize: 16,
+              color: ColorsUtil.hexColor(0x4FA28D),
+              fontWeight: FontWeight.w600),
+        ),
       ),
     );
   }
