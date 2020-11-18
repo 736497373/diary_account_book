@@ -2,6 +2,7 @@ import 'package:diary_account_book/module/page/drawer/right_drawer.dart';
 import 'package:diary_account_book/module/page/main/main_page.dart';
 
 import 'package:diary_account_book/module/services/EventBusUtils.dart';
+import 'package:diary_account_book/module/utils/appNavUtils/app_nav_utils.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -73,21 +74,25 @@ class _RootPageState extends State<RootPage>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      RightDrawerPage(),
-      Positioned(
-          top: (ScreenUtil.screenHeight - animation.value.height) * 0.5,
-          right: ScreenUtil.screenWidth - animation.value.width,
-          bottom: (ScreenUtil.screenHeight - animation.value.height) * 0.5,
-          child: ClipRRect(
-            clipBehavior: Clip.hardEdge,
-            borderRadius: BorderRadius.all(Radius.circular(_circularValue)),
-            child: Container(
-              child: MainPage(),
-              height: ScreenUtil.screenHeight,
-              width: ScreenUtil.screenWidth,
-            ),
-          ))
-    ]);
+    return AppNavUtil(
+        title: '',
+        isAppNav: false,
+        isBack: false,
+        body: Stack(children: [
+          RightDrawerPage(),
+          Positioned(
+              top: (ScreenUtil.screenHeight - animation.value.height) * 0.5,
+              right: ScreenUtil.screenWidth - animation.value.width,
+              bottom: (ScreenUtil.screenHeight - animation.value.height) * 0.5,
+              child: ClipRRect(
+                clipBehavior: Clip.hardEdge,
+                borderRadius: BorderRadius.all(Radius.circular(_circularValue)),
+                child: Container(
+                  child: MainPage(),
+                  height: ScreenUtil.screenHeight,
+                  width: ScreenUtil.screenWidth,
+                ),
+              ))
+        ]));
   }
 }

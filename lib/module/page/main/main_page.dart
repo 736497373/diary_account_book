@@ -1,4 +1,8 @@
+import 'dart:math';
+
+import 'package:diary_account_book/module/utils/routerNavUtils/router_nav_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../home/home_page.dart';
 import '../personal/personal_home_page.dart';
 import '../record/record_home_page.dart';
@@ -20,7 +24,7 @@ class _MainPageState extends State<MainPage> {
   List _pageList = [
     new HomePage(),
     new StatisticalHomePage(),
-    new TallyHomePage(),
+    null,
     new RecordHomePage(),
     new PersonalHomePage()
   ];
@@ -65,7 +69,31 @@ class _MainPageState extends State<MainPage> {
       ],
       onTap: (index) {
         setState(() {
-          _tabIndex = index;
+          if (index == 2) {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              context: context,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10))),
+              builder: (context) {
+                return GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    return false;
+                  },
+                  child: Container(
+                    height: ScreenUtil().setHeight(709),
+                    width: double.infinity,
+                    child: TallyHomePage(),
+                  ),
+                );
+              },
+            );
+          } else {
+            _tabIndex = index;
+          }
         });
       },
     );

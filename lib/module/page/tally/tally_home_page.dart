@@ -11,7 +11,9 @@ class _TallyHomePageState extends State<TallyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('添加'),
+      child: Center(
+        child: Text('添加'),
+      ),
     );
   }
 }
