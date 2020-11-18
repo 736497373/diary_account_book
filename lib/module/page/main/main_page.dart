@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:diary_account_book/module/utils/routerNavUtils/router_nav_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../home/home_page.dart';
@@ -73,10 +70,7 @@ class _MainPageState extends State<MainPage> {
             showModalBottomSheet(
               isScrollControlled: true,
               context: context,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10))),
+              backgroundColor: Colors.transparent,
               builder: (context) {
                 return GestureDetector(
                   behavior: HitTestBehavior.opaque,
@@ -84,7 +78,7 @@ class _MainPageState extends State<MainPage> {
                     return false;
                   },
                   child: Container(
-                    height: ScreenUtil().setHeight(709),
+                    height: ScreenUtil().setHeight(750),
                     width: double.infinity,
                     child: TallyHomePage(),
                   ),

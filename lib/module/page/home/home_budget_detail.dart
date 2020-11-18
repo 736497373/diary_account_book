@@ -58,7 +58,7 @@ class _HomeBudgetDetailState extends State<HomeBudgetDetail> {
 
   Widget backWidget() {
     return Positioned(
-        top: 50,
+        top: ScreenUtil().setHeight(50),
         left: 10,
         child: BackButton(
           color: Colors.white,

@@ -1,5 +1,4 @@
 import 'package:diary_account_book/module/router/home_router.dart';
-import 'package:diary_account_book/module/utils/appNavUtils/app_nav_utils.dart';
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:diary_account_book/module/utils/routerNavUtils/router_nav_utils.dart';
 import 'package:flutter/material.dart';
