@@ -12,21 +12,24 @@ class TallyHomePage extends StatefulWidget {
 class _TallyHomePageState extends State<TallyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    final bgWidgetHeight = MediaQuery.of(context).size.height;
+    final headHeight = 200.0;
     return bgWidget(
-      height,
+      bgWidgetHeight,
       bgImage: AssetImage("assets/home_budget_detail_bg_4FA28D.png"),
       child: Stack(
         children: [
-          Column(
-            children: [
-              tipWidget(),
-              tallyTypeHeadContainerWidget(),
-              amountWidget(36.00),
-              walletTypeContainerWidget()
-            ],
-          ),
-          actionContainerWidget(ScreenUtil().setHeight(height - 150),
+          Container(
+              height: headHeight,
+              child: Column(
+                children: [
+                  tipWidget(),
+                  tallyTypeHeadContainerWidget(),
+                  amountWidget(36.00),
+                  walletTypeContainerWidget()
+                ],
+              )),
+          actionContainerWidget(headHeight,
               child: Column(
                 children: [
                   actionSubRecordTypeWidget(),
@@ -44,7 +47,7 @@ class _TallyHomePageState extends State<TallyHomePage> {
     return Container(
       decoration: ShapeDecoration(
           image: bgImage != null
-              ? DecorationImage(image: bgImage, fit: BoxFit.fitWidth)
+              ? DecorationImage(image: bgImage, fit: BoxFit.fill)
               : null,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -196,8 +199,9 @@ class _TallyHomePageState extends State<TallyHomePage> {
     );
   }
 
-  Widget actionContainerWidget(double height, {Widget child}) {
+  Widget actionContainerWidget(double headHeight, {Widget child}) {
     return Positioned(
+      top: headHeight,
       bottom: 0,
       child: Container(
         decoration: ShapeDecoration(
@@ -207,7 +211,6 @@ class _TallyHomePageState extends State<TallyHomePage> {
                     topRight: Radius.circular(20))),
             color: ColorsUtil.hexColor(0xEEEEEE)),
         width: ScreenUtil.screenWidth,
-        height: height,
         child: child,
       ),
     );
