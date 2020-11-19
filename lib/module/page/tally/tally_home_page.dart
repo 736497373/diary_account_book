@@ -10,6 +10,7 @@ class TallyHomePage extends StatefulWidget {
 }
 
 class _TallyHomePageState extends State<TallyHomePage> {
+  TextEditingController _textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final bgWidgetHeight = MediaQuery.of(context).size.height;
@@ -225,6 +226,24 @@ class _TallyHomePageState extends State<TallyHomePage> {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15))),
           color: ColorsUtil.hexColor(0xFFFFFF)),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 18, top: 16),
+                child: Text(
+                  '最近使用',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: ColorsUtil.hexColor(0x3C4546),
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 
@@ -241,18 +260,55 @@ class _TallyHomePageState extends State<TallyHomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
+            height: 60,
             width: ScreenUtil().setWidth(277),
             decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(15))),
                 color: ColorsUtil.hexColor(0xFFFFFF)),
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 18),
+                  child: Text(
+                    '时间',
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: ColorsUtil.hexColor(0x3C4546),
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 18),
+                  child: Text(
+                    '星期日  2020/3/2 上午11:50',
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: ColorsUtil.hexColor(0x8A8F90),
+                        fontWeight: FontWeight.w600),
+                  ),
+                )
+              ],
+            ),
           ),
-          Container(
-            width: ScreenUtil().setWidth(62),
-            decoration: ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
-                color: ColorsUtil.hexColor(0xFFFFFF)),
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: ScreenUtil().setWidth(62),
+              decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  color: ColorsUtil.hexColor(0xFFFFFF)),
+              child: Center(
+                child: Text(
+                  '现在',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: ColorsUtil.hexColor(0x3247D3),
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+            ),
           )
         ],
       ),
@@ -268,6 +324,43 @@ class _TallyHomePageState extends State<TallyHomePage> {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15))),
           color: ColorsUtil.hexColor(0xFFFFFF)),
+      child: Row(
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 18),
+            child: Text(
+              '备注',
+              style: TextStyle(
+                  fontSize: 14,
+                  color: ColorsUtil.hexColor(0x3C4546),
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+          Container(
+              width: ScreenUtil().setWidth(251),
+              height: 60,
+              margin: EdgeInsets.only(left: 5, top: 7),
+              child: new TextField(
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: '填写备注内容',
+                    hintStyle: new TextStyle(
+                        color: ColorsUtil.hexColor(0x999999), fontSize: 15)),
+                controller: _textEditingController,
+                textAlign: TextAlign.left,
+                textDirection: TextDirection.ltr,
+                textInputAction: TextInputAction.search,
+                textCapitalization: TextCapitalization.sentences,
+                onChanged: (text) {
+                  //内容修改的回调
+                  print('submit $text');
+                },
+                onSubmitted: (text) {},
+              ))
+        ],
+      ),
     );
   }
 
