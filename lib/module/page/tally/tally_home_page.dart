@@ -241,6 +241,47 @@ class _TallyHomePageState extends State<TallyHomePage> {
                 ),
               ),
             ],
+          ),
+          SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              actionSubRecordTypeItemWidget('testAssets/奶茶.png', '奶茶', true),
+              actionSubRecordTypeItemWidget('testAssets/服饰.png', '服饰', false),
+              actionSubRecordTypeItemWidget('testAssets/公交车.png', '公交', false),
+              actionSubRecordTypeItemWidget('testAssets/医药箱.png', '奶茶', false),
+              actionSubRecordTypeItemWidget('testAssets/西餐.png', '餐饮', false),
+              actionSubRecordTypeItemWidget('testAssets/手机.png', '通讯', false),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget actionSubRecordTypeItemWidget(
+      String assetName, String name, bool selectd) {
+    return Container(
+      width: ScreenUtil().setWidth(52),
+      height: ScreenUtil().setHeight(59),
+      color: selectd ? ColorsUtil.hexColor(0xEEEEEE) : Colors.white,
+      child: Column(
+        children: [
+          SizedBox(height: ScreenUtil().setHeight(3)),
+          Container(
+            width: 19,
+            height: 24,
+            child: Image.asset(assetName),
+          ),
+          SizedBox(height: ScreenUtil().setHeight(5)),
+          Container(
+            child: Text(
+              '$name',
+              style: TextStyle(
+                color: ColorsUtil.hexColor(0x8A8F90, alpha: 0.9),
+                fontSize: 12,
+              ),
+            ),
           )
         ],
       ),
