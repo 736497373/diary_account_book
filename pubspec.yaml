@@ -21,7 +21,8 @@ dependencies:
   flutter_easyloading: ^2.0.1
   shared_preferences: ^0.5.12+4
   flutter_echarts: ^1.4.0
-  
+  flutter_picker: ^1.1.5
+  date_format: ^1.0.8
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,5 +1,7 @@
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
+import 'package:diary_account_book/module/utils/pickerUtils/picker_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_picker/Picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TallyHomePage extends StatefulWidget {
@@ -229,6 +231,7 @@ class _TallyHomePageState extends State<TallyHomePage> {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 margin: EdgeInsets.only(left: 18, top: 16),
@@ -240,16 +243,37 @@ class _TallyHomePageState extends State<TallyHomePage> {
                       fontWeight: FontWeight.w600),
                 ),
               ),
+              GestureDetector(
+                  onTap: () {
+                    // var bb = [
+                    //   ["11", "22"],
+                    //   ["11", "22"],
+                    // ];
+                    // PickerUtils.showArrayPicker(context,
+                    //     data: bb, clickCallBack: (selecteds, strData) {});
+
+                    showPickerIcons(context);
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(right: 18, top: 16),
+                    child: Text(
+                      '其他 >',
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: ColorsUtil.hexColor(0x5378C6),
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ))
             ],
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               actionSubRecordTypeItemWidget('testAssets/奶茶.png', '奶茶', true),
               actionSubRecordTypeItemWidget('testAssets/服饰.png', '服饰', false),
               actionSubRecordTypeItemWidget('testAssets/公交车.png', '公交', false),
-              actionSubRecordTypeItemWidget('testAssets/医药箱.png', '奶茶', false),
+              actionSubRecordTypeItemWidget('testAssets/医药箱.png', '医疗', false),
               actionSubRecordTypeItemWidget('testAssets/西餐.png', '餐饮', false),
               actionSubRecordTypeItemWidget('testAssets/手机.png', '通讯', false),
             ],
@@ -263,17 +287,17 @@ class _TallyHomePageState extends State<TallyHomePage> {
       String assetName, String name, bool selectd) {
     return Container(
       width: ScreenUtil().setWidth(52),
-      height: ScreenUtil().setHeight(59),
+      height: 59,
       color: selectd ? ColorsUtil.hexColor(0xEEEEEE) : Colors.white,
       child: Column(
         children: [
-          SizedBox(height: ScreenUtil().setHeight(3)),
+          SizedBox(height: 8),
           Container(
             width: 19,
             height: 24,
             child: Image.asset(assetName),
           ),
-          SizedBox(height: ScreenUtil().setHeight(5)),
+          SizedBox(height: 4),
           Container(
             child: Text(
               '$name',
