@@ -37,8 +37,7 @@ class AppNavUtil extends StatefulWidget {
 class _AppNavUtilState extends State<AppNavUtil> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: widget.isAppNav
           ? AppBar(
@@ -62,7 +61,7 @@ class _AppNavUtilState extends State<AppNavUtil> {
         color: ColorsUtil.hexColor(0xF1F2F4),
         child: widget.body,
       ),
-    ));
+    );
   }
 
   Widget customAppBar(CustomAppNav customAppNav) {

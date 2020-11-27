@@ -1,7 +1,7 @@
 import 'package:diary_account_book/module/utils/colorUtils/colors_utils.dart';
 import 'package:diary_account_book/module/utils/pickerUtils/picker_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_picker/Picker.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TallyHomePage extends StatefulWidget {
@@ -245,14 +245,12 @@ class _TallyHomePageState extends State<TallyHomePage> {
               ),
               GestureDetector(
                   onTap: () {
-                    // var bb = [
-                    //   ["11", "22"],
-                    //   ["11", "22"],
-                    // ];
-                    // PickerUtils.showArrayPicker(context,
-                    //     data: bb, clickCallBack: (selecteds, strData) {});
-
-                    showPickerIcons(context);
+                    var bb = [
+                      ["11", "22"],
+                      ["11", "22"],
+                    ];
+                    PickerUtils.showArrayPicker(context,
+                        data: bb, clickCallBack: (selecteds, strData) {});
                   },
                   child: Container(
                     margin: EdgeInsets.only(right: 18, top: 16),
